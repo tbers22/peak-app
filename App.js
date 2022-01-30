@@ -18,10 +18,10 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator tabBarOptions={{showIcon: true}} screenOptions={{tabBarActiveTintColor: theme.palette.black}}>
         <Tab.Screen name="Archive" component={ArchiveScreen}  options={{ tabBarIcon:(tabInfo) => (<Ionicons name="folder-open-sharp" size={25} />)}}/>
-        <Tab.Screen name="Feed" component={FeedScreen}  options={{ tabBarIcon:(tabInfo) => (<Ionicons name="ios-settings-sharp" size={25} />)}}/>       
-        <Tab.Screen name="Start" component={Start} options={{ tabBarIcon:(tabInfo) => (<Ionicons name="caret-forward-circle" size={25} />)}}/>
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Feed" component={FeedScreen} options={{ tabBarIcon:(tabInfo) => (<Ionicons name="home-sharp" size={25} />)}}/>       
+        <Tab.Screen name="Start" component={Start} options={{ tabBarIcon:(tabInfo) => (<Ionicons name="caret-forward-circle" size={35} />)}}/>
+        <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarIcon:(tabInfo) => (<Ionicons name="person-sharp" size={25} />)}}/>
+        <Tab.Screen name="Settings" component={SettingsScreen} options={{ tabBarIcon:(tabInfo) => (<Ionicons name="ios-settings-sharp" size={25} />)}}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
