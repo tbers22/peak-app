@@ -53,4 +53,8 @@ export default class PeakAPI {
     return this.request('/users/me', 'GET')
   }
 
+  async clipsGet(startTimestamp, endTimestamp) {
+    return this.request(`clips/start_timestamp=${startTimestamp}&end_timestamp=${endTimestamp}`, 'GET')
+  }
+
 }
