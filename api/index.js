@@ -1,3 +1,3 @@
-import PeakAPI from 'Peak.js';
+import Peak from './Peak';
 
-export const PeakAPI = new PeakAPI();
+export const PeakAPI = new Peak();

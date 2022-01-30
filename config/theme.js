@@ -4,8 +4,10 @@ export default theme = {
     palette: {
       primary: '#6b5b95',
       logoColor: '#b19cd9',
-      black: '#181818',
-      white: '#dddddd',
+      black: '#1E2020',
+      white: '#F7F7FF',
+      blue: '#56A3A6',
+      orange: 'FFA400',
       primaryText: '#ffffff',
       secondaryText: '#555555'
     },

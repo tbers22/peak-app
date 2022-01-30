@@ -1,14 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-PEAK_URL = 'https://192.168.1.162/api/v1'
+PEAK_URL = 'http://192.168.1.162/api/v1'
 
 export default class PeakAPI {
 
   accessToken = null;
 
   async loadAccessToken() {
-    this.accessToken = await AsyncStorage.getItem('accessToken');
-    if (accessToken != null) {
+    try {
+      this.accessToken = await AsyncStorage.getItem('accessToken');
+    } catch (e) {
+      return false;
+    }
+    if (this.accessToken != null) {
       return true;
     }
     return false;
@@ -16,15 +20,18 @@ export default class PeakAPI {
 
   async request(path, method, data=null, ) {
     await this.loadAccessToken();
-    const response = await fetch(PEAK_URL + path, {
+    data = {
       method,
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${accessToken}`
+        'Authorization': `Bearer ${this.accessToken}`
       },
-      body: JSON.stringify(data)
-    });
+    }
+    if (method == 'POST') {
+      data = { ...data, body: JSON.stringify(data) }
+    }
+    const response = await fetch(PEAK_URL + path, data);
     return response.json();
   }
 
@@ -32,21 +39,18 @@ export default class PeakAPI {
     fetch(PEAK_URL + '/login/access-token', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify({
-        email,
-        password
-      })
+      body: `username=${email}&password=${password}`
     }).then((response) => response.json())
       .then((response) => {
-        await AsyncStorage.setItem('accessToken', response.accessToken);
-        this.accessToken = response.accessToken;
+        AsyncStorage.setItem('accessToken', response.access_token);
+        this.accessToken = response.access_token;
       })
   }
 
   async userGet() {
-    return this.request()
+    return this.request('/users/me', 'GET')
   }
 
 }

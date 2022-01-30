@@ -4,7 +4,7 @@ import theme from '../config/theme'
 export default function FeedScreen() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.palette.primary}}>
-        <Text style={styles.title}>Home!</Text>
+        <Text style={styles.title}>Look at your friend's activity</Text>
       </View>
     );
   }
