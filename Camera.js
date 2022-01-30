@@ -38,12 +38,7 @@ export default class Camera extends PureComponent {
                   captureAudio={false}
                   style={{flex: 1}}
                   type={RNCamera.Constants.Type.back}
-                  iosCameraPermissionOptions={{
-                    title: 'Permission to use camera',
-                    message: 'We need your permission to use your camera',
-                    buttonPositive: 'Ok',
-                    buttonNegative: 'Cancel',
-                  }} />
+                  />
                 );
        }}
     const styles = StyleSheet.create({

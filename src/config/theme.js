@@ -2,14 +2,15 @@
    
 export default theme = {
     palette: {
-      primary: '#6b5b95',
+      primary: '#F7F7F7',
       logoColor: '#b19cd9',
+      lightGray: '#F7F7F7',
       black: '#1E2020',
-      white: '#F7F7FF',
+      white: '#FFFFFF',
       blue: '#56A3A6',
       orange: 'FFA400',
-      primaryText: '#ffffff',
-      secondaryText: '#555555'
+      primaryText: '#1E2020',
+      secondaryText: '#56A3A6'
     },
     typography: {
       fontSize: {

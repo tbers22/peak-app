@@ -1,15 +1,18 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import theme from '../config/theme'
-export default function ProfileScreen() {
+import Logo from '../components/Logo';
+export default function FeedScreen() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.palette.primary}}>
-        <Text style={styles.title}>Profile!</Text>
+        <Logo/>
+        <Text style={styles.title}>Look at your friend's activity</Text>
       </View>
     );
   }
 
-  const styles = StyleSheet.create({
+
+const styles = StyleSheet.create({
     container: {
       justifyContent: 'center',
       alignItems: 'stretch',
